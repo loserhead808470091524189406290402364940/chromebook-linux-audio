@@ -53,14 +53,17 @@ def install_deb_kernel():
     print_status("Updating linux kernel (this may take some time)")
     try:
         # do not download
-        #urlretrieve(url=deb_kernel_url, filename="/tmp/debian-kernel.zip")
-        bash("cd / && unzip debian-kernel.zip")
-        bash("apt install -y /linux-image-*-chrultrabook_*_amd64.deb")
-        #bash("rm /tmp/debian-kernel.zip /tmp/linux-*.deb")
-        bash("rm /tmp/linux-*.deb")
+        #urlretrieve(url=deb_kernel_url, filename="debian-kernel.zip")
+        # get file from current dir
+        bash("unzip debian-kernel.zip")
+        # install unpacked .deb
+        bash("apt install -y linux-image-*-chrultrabook_*_amd64.deb")
+        #bash("rm debian-kernel.zip linux-*.deb")
+        # delete only unpacked .deb
+        bash("rm linux-*.deb")
         print_status("Kernel installed")
     except:
-        print_error("Error: Failed to install kernel")
+        print_error("Error: Failed to install kernel, does debian-kernel.zip exist?")
 
 
 def get_board():
