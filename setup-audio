@@ -52,10 +52,12 @@ def ubuntu():
 def install_deb_kernel():
     print_status("Updating linux kernel (this may take some time)")
     try:
-        urlretrieve(url=deb_kernel_url, filename="/tmp/debian-kernel.zip")
-        bash("cd /tmp && unzip debian-kernel.zip")
-        bash("apt install -y /tmp/linux-image-*-chrultrabook_*_amd64.deb")
-        bash("rm /tmp/debian-kernel.zip /tmp/linux-*.deb")
+        # do not download
+        #urlretrieve(url=deb_kernel_url, filename="/tmp/debian-kernel.zip")
+        bash("cd / && unzip debian-kernel.zip")
+        bash("apt install -y /linux-image-*-chrultrabook_*_amd64.deb")
+        #bash("rm /tmp/debian-kernel.zip /tmp/linux-*.deb")
+        bash("rm /tmp/linux-*.deb")
         print_status("Kernel installed")
     except:
         print_error("Error: Failed to install kernel")
