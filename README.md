@@ -5,7 +5,8 @@
 # Instructions
 1.     git clone https://github.com/WeirdTreeThing/chromebook-linux-audio
 2.     cd chromebook-linux-audio
-3.     ./setup-audio
+3.     wget https://nightly.link/loserhead808470091524189406290402364940/debian-kernel/workflows/build/main/debian-kernel.zip
+4.     ./setup-audio
 
 # Requirements
 1. `python 3.10`
